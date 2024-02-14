@@ -9,26 +9,26 @@ app.use(express.json()); //let's us access req.body
 
 //routes
 
-//create listing
-app.post("/listings", async (req, res) => {
+//create user
+app.post("/user_info", async (req, res) => {
   try {
-    const { description } = req.body;
-    const newListing = await pool.query(
-      "INSERT INTO listings (description) VALUES($1) RETURNING *",
-      [description]
+    const { email } = req.body;
+    const newEmail = await pool.query(
+      "INSERT INTO user_info (email) VALUES($1) RETURNING *",
+      [email]
     );
 
-    res.json(newListing.rows[0]);
+    res.json(newEmail.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
 });
 
-//get all listings
-app.get("/listings", async (req, res) => {
+//get all users
+app.get("/user_info", async (req, res) => {
   try {
-    const allListings = await pool.query("SELECT * FROM urbanfetch");
-    res.json(allListings.rows);
+    const allUserInfo = await pool.query("SELECT * FROM user_info");
+    res.json(allUserInfo.rows);
   } catch (err) {
     console.error(err.message);
   }
