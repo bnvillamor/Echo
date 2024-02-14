@@ -2,13 +2,13 @@ import React, { Fragment } from "react";
 import './App.css';
 
 //components
-import AddListing from "./components/AddListing";
+import AddUser from "./components/AddUser";
 
 function App() {
   return (
     <Fragment>
       <div className='container'>
-        <AddListing />
+        <AddUser />
       </div>
     </Fragment>
   );
