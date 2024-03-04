@@ -17,7 +17,7 @@ prompt = st.text_input('')
 # Prompt templates
 scenario_template = PromptTemplate(
     input_variables = ['scenario'], 
-    template='You are making a language lesson plan using these criteria: User is learning: Spanish - User wants to have a conversation about this scenario: {scenario} User wants to learn doing these 3 stages of learning: 1. Learn vocab through repetition(typing/speaking) 2. Learning sentence structure using the vocab(typing/speaking) 3. Give an example conversation for the user to practice using this scenario'
+    template='You are making a language lesson plan using these criteria: User is learning: Spanish - User wants to have a conversation about this scenario: {scenario} 1. Give an example conversation for the user to practice using this scenario 2. Give vocabulary for the user to practice'
 )
 
 # script_template = PromptTemplate(
@@ -39,7 +39,7 @@ lesson_chain = LLMChain(llm=llm, prompt=scenario_template, verbose=True, output_
 if prompt: 
     lesson = lesson_chain.run(prompt)
 
-    st.write(lesson, caching=False) 
+    st.write(lesson) 
 
     with st.expander('Lesson History'): 
         st.info(scenario_memory.buffer)
