@@ -23,6 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 /server/db.js
-apikey.py
+/apikey.py
 
 /src/components/home/.env

@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
-import { Navigate, Link, useNavigate } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 import { useAuth } from '../../../contexts/authContext'
 import { doCreateUserWithEmailAndPassword } from '../../../firebase/auth'
 
 const Register = () => {
 
-    const navigate = useNavigate()
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setconfirmPassword] = useState('')
     const [isRegistering, setIsRegistering] = useState(false)
-    const [errorMessage, setErrorMessage] = useState('')
 
     const { userLoggedIn } = useAuth()
 
@@ -79,10 +76,6 @@ const Register = () => {
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
-
-                        {errorMessage && (
-                            <span className='text-red-600 font-bold'>{errorMessage}</span>
-                        )}
 
                         <button
                             type="submit"

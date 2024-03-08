@@ -36,9 +36,9 @@ export function AuthProvider({ children }) {
     
         const value = {
             userLoggedIn,
+            currentUser,
             isEmailUser,
             isGoogleUser,
-            currentUser,
             setCurrentUser
         };
         
